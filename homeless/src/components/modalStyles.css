@@ -1,0 +1,35 @@
+.modalOverlay {
+    display: 'flex';
+    align-items: 'center';
+    justify-content: 'center';
+    position: 'fixed';
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: '1rem';
+    background-color: 'rgba(0, 0, 0, 0.7)';
+    z-index: '9999';
+    opacity: 1;
+    overflow-x: 'hidden';
+    overflow-y: 'auto';
+    animation: 'show .5s ease'
+  }
+
+  .modal {
+    width: '100%';
+    background-color: '#fff';
+  }
+
+  .closeButton {
+    position: 'fixed';
+    top: 0;
+    right: 0;
+    background: '#fff';
+    width: '2.5rem';
+    height: '2.5rem';
+    padding: 0;
+    border: 0;
+    cursor: 'pointer';
+    outline: 0;
+  }
