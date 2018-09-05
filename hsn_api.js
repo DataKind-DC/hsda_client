@@ -77,6 +77,10 @@ year_incorporated:null
 }
 
 
-axios.get('http://miami.open.211.hsda.api.adopta.agency/services/full/')
+axios.get('http://miami.open.211.hsda.api.adopta.agency/organizations/full/0A83FBB5-71A7-3A9C-2B5E-54D1B8AD8D43')
   .then(response => console.log(response))
   .catch(error => console.log(error));
+
+//axios.get('http://miami.open.211.hsda.api.adopta.agency/services/full/')
+//  .then(response => console.log(response))
+//  .catch(error => console.log(error));

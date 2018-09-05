@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 import { getData, init } from '../actions/apiActions'
 import { connect } from 'react-redux'
-import DataDisplay from './DataDisplay';
+//import DataDisplay from './DataDisplay';
 
 class MainPage extends React.Component{
     constructor(props){
@@ -13,7 +13,7 @@ class MainPage extends React.Component{
     handleClick = event =>{
 
         var loadDataTree = false
-        axios.get('http://miami.open.211.hsda.api.adopta.agency/services/full/')
+        axios.get('http://miami.open.211.hsda.api.adopta.agency/organizations/full/0A83FBB5-71A7-3A9C-2B5E-54D1B8AD8D43')
         .then(response => {
             this.props.downloadData(response.data);
             if(response.status === 200){
@@ -27,7 +27,7 @@ class MainPage extends React.Component{
                     showError: true
                 });
             }
-            console.log('orgs', this.props.organizations)
+            console.log('orgs', this.props.organization)
             console.log('state', this.state)
 
         })
@@ -48,7 +48,8 @@ class MainPage extends React.Component{
     render(){
         return (
             <div>
-                {this.state.showData ? <DataDisplay/> : this.loadButton()}
+                {this.loadButton()}
+                {/*{this.state.showData ? <DataDisplay/> : this.loadButton()}*/}
             </div>
         );
         
@@ -57,7 +58,7 @@ class MainPage extends React.Component{
 
 function mapStateToProps(state){
     return {
-        organizations: state
+        organization: state
     }
 }
 
