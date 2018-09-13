@@ -1,5 +1,5 @@
 import { createStore,  combineReducers } from 'redux';
-import reducerMain from '../reducers/organizationReducer';
+import organizationReducer from '../reducers/organizationReducer';
 import { initialState } from '../reducers/organizationReducer';
 import { reducer as formReducer } from 'redux-form'
 
@@ -7,14 +7,16 @@ import { reducer as formReducer } from 'redux-form'
 
 const rootReducer = combineReducers({
   // ...your other reducers here
-    reducerMain:reducerMain,
+        organization:organizationReducer,
   // you have to pass formReducer under 'form' key,
   // for custom keys look up the docs for 'getFormState'
   form: formReducer
 })
 
 export default function configureStore(){
-    const store = createStore(rootReducer, initialState);
+    //const initialStateReal=initialState.then(async (val) => {return(val)});
+    //console.log('ireal',initialStateReal);
+    const store = createStore(rootReducer);
     return store;
 }
 

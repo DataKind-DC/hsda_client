@@ -6,7 +6,8 @@ export const fields = [ 'url', 'description', 'email']
 
 
 let SimpleForm = props => {
-  const { fields: {url,description, email,organizationName}, handleSubmit, pristine, reset, submitting } = props
+  // const { fields: {url,description, email,organizationName}, handleSubmit, pristine, reset, submitting } = props
+    const { handleSubmit, pristine, reset, submitting } = props
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -16,7 +17,7 @@ let SimpleForm = props => {
             name="name"
             component="input"
             type="text"
-            placeholder="my Org" {...organizationName}
+            placeholder="my Org"
           />
         </div>
       </div>
@@ -38,7 +39,7 @@ let SimpleForm = props => {
             name="email"
             component="input"
             type="email"
-            placeholder="Email" {...email}
+            placeholder="Email"
           />
         </div>
       </div>
@@ -50,14 +51,14 @@ let SimpleForm = props => {
             name="url"
             component="input"
             type="url"
-            placeholder="https://www.mygreat.org" {...url}
+            placeholder="https://www.mygreat.org"
           />
         </div>
       </div>
       <div>
         <label>description</label>
         <div>
-          <Field name="description" component="textarea"  placeholder="" {...description} />
+          <Field name="description" component="textarea"  placeholder=""  />
         </div>
       </div>
       <div>
@@ -97,17 +98,24 @@ SimpleForm=reduxForm({
     enableReinitialize: true,
     })(SimpleForm)
 
-SimpleForm= connect(mapStateToProps, actions)(reduxForm(SimpleForm));
+
+
+const mapDispatchToProps = (dispatch)  => ({
+    // ...
+});
+
+const mapStateToProps= (state) => {
+    return {
+        //  url: state.organization.url,
+        //   description: state.organization.description,
+        // email:state.organization.email,
+        // organizationName:state.organization.name
+    };
+};
+
+
+SimpleForm= connect(mapStateToProps)(SimpleForm);
 
 export default SimpleForm
-
-function mapStateToProps(state){
-    return {
-         url: state.organization.url,
-          description: state.organization.description,
-        email:state.organization.email,
-        organizationName:state.organization.name
-    }
-}
 
 //export default connect(mapStateToProps, actions)(reduxform(SimpleForm));

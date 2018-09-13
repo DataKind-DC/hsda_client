@@ -6,9 +6,9 @@ import SimpleForm from '../src/components/simpleForm';
 import configureStore from '../src/helpers/initStore'
 import { Provider } from "react-redux";
 
-var store = configureStore();
-class App extends Component {
+let store = configureStore();
 
+class App extends Component {
   render() {
     return (
       <Provider store={store}>
