@@ -96,6 +96,7 @@ let SimpleForm = props => {
 SimpleForm=reduxForm({
     form:'simple',
     enableReinitialize: true,
+    keepDirtyOnReinitialize:true,
     })(SimpleForm)
 
 
